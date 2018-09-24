@@ -87,6 +87,9 @@ def signed_magnitude_bin_to_dec(bin_num):
 def twos_complement_dec_to_bin(dec_num):
     # გადაიყვანს ნიშნიან ათობით რიცხვს ორობით ფუძის დამატებით გამოსახულებაში
     assert type(dec_num) is str
+    # თუ დადებითია, პირდაპირ გადავიყვანოთ
+    if get_dec_sign(dec_num) == "+":
+        return to_bin(int(dec_num))
     # წავაჭრათ ნიშანი
     raw_dec_num = dec_num
     if dec_num[0] == "-" or dec_num[0] == "+":
