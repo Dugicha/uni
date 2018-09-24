@@ -97,10 +97,8 @@ def twos_complement_dec_to_bin(dec_num):
     log("raw_dec_num:", raw_dec_num)
     # გადავიყვანოთ ორობითში
     raw_bin_num = to_bin(int(raw_dec_num))
-    log("raw_bin_num:", raw_bin_num)
     # დავატრიალოთ ბიტები
     flipped_bin_num = flip_bits(raw_bin_num)
-    log("flipped_bin_num:", flipped_bin_num)
     # გადავიყვანოთ ათობითში, დავუმატოთ 1 და გადმოვიყვანოთ ორობითში
     bin_num = to_bin(to_dec(flipped_bin_num) + 1)
     # მივუწეროთ ნულები მარცხნივ თუ დამოკლდა
@@ -113,7 +111,21 @@ def twos_complement_dec_to_bin(dec_num):
     
 def twos_complement_bin_to_dec(bin_num):
     # აბრუნებს ფუძის დამატებითი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით მნიშვნელობას
-    pass
+    assert type(bin_num) is str
+    # დავადგინოთ ნიშანი
+    sign = "+"
+    if bin_num[0] == "1":
+        sign = "-"
+    # თუ დადებითია, პირდაპირ გადავიყვანოთ
+    if sign == "+":
+        return to_dec(bin_num)
+    # დავატრიალოთ ბიტები
+    flipped_bin_num = flip_bits(bin_num)
+    # გადავიყვანოთ ათობითში და დავუმატოთ ერთი
+    raw_dec_num = to_dec(flipped_bin_num) + 1
+    # მივუწეროთ ნიშანი
+    dec_num = "{}{}".format(sign, raw_dec_num)
+    return dec_num
 
 def main():
     # შევიყვანოთ ინფორმაცია
