@@ -24,7 +24,7 @@ def flip_bits(num):
     return ans
 
 def to_bin(num):
-    # გადაიყვანს ათობითიდან ორობითში უნიშნოდ
+    # გადაიყვანს ათობითიდან ორობითში უნიშნოდ (0-ებს მიუწერს ბაიტებად დაყოფისთვის)
     assert type(num) is int
     ans = ""
     quotent = num
@@ -34,6 +34,9 @@ def to_bin(num):
         if quotent == remainder:
             break
         quotent = int((quotent - remainder) / 2)
+    # ბაიტებად დაყოფისთვის 0-ების მიწერა
+    if len(ans) % 4 > 0:
+        ans = "{}{}".format("0"*(4 - (len(ans) % 4)), ans)
     return ans
 
 def to_dec(num, sign="+"):
@@ -100,6 +103,8 @@ def twos_complement_dec_to_bin(dec_num):
     # მივუწეროთ ნულები მარცხნივ თუ დამოკლდა
     if len(bin_num) < len(raw_bin_num):
         bin_num = "{}{}".format("0"*(len(raw_bin_num) - len(bin_num)), bin_num)
+    elif len(bin_num) > len(raw_bin_num): # მოვაჭრათ მარცხნიდან თუ ზედმეტია
+        bin_num = bin_num[len(bin_num) - len(raw_bin_num):]
     # გამოვიტანოთ პასუხი
     return bin_num
     
