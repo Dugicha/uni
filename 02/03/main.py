@@ -1,6 +1,6 @@
 # - signed magnitude - MSB denotes sign (1 is negative, 0 positive)
-# - two's compliment - flip bits and add 1 to get negative
-# - one's compliment - flip bits
+# - two's complement - flip bits and add 1 to get negative
+# - one's complement - flip bits
 # - excess-bias representation - numbers are shifted by bias B
 
 '''
@@ -81,7 +81,7 @@ def signed_magnitude_bin_to_dec(bin_num):
     raw_dec_num = to_dec(raw_bin_num)
     return "{}{}".format(sign, raw_dec_num)
 
-def twos_compliment_dec_to_bin(dec_num):
+def twos_complement_dec_to_bin(dec_num):
     # გადაიყვანს ნიშნიან ათობით რიცხვს ორობით ფუძის დამატებით გამოსახულებაში
     assert type(dec_num) is str
     # წავაჭრათ ნიშანი
@@ -103,7 +103,7 @@ def twos_compliment_dec_to_bin(dec_num):
     # გამოვიტანოთ პასუხი
     return bin_num
     
-def twos_compliment_bin_to_dec(bin_num):
+def twos_complement_bin_to_dec(bin_num):
     # აბრუნებს ფუძის დამატებითი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით მნიშვნელობას
     pass
 
@@ -115,14 +115,14 @@ def main():
         2) Base 2\n'''))
     # method = int(input('''Choose method: 
     #     1)signed magnitude
-    #     2)two's compliment
-    #     3)one's compliment
+    #     2)two's complement
+    #     3)one's complement
     #     4)excess-bias\n'''))
     if choice == 1:
         base = 10
         print("Signed magnitude:", signed_magnitude_dec_to_bin(number))
-        print("Two's compliment:", twos_compliment_dec_to_bin(number))
+        print("Two's complement:", twos_complement_dec_to_bin(number))
     elif choice == 2:
         base = 2
         print("Signed magnitude:", signed_magnitude_bin_to_dec(number))
-        print("Two's compliment:", twos_compliment_bin_to_dec(number))
+        print("Two's complement:", twos_complement_bin_to_dec(number))
