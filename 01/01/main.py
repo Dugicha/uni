@@ -11,14 +11,14 @@ def find_multiples(a, b, c):
         more = b
         less = a
     '''
-    გაიგებს more-მდე c-ს ჯერადების რაოდენობას, შემდომ (less - 1)-მდე c-ს 
-    ჯერადების რაოდენობას და შემდგომ მათ სხვაობას. less-1 საჭიროა, 
+    გაიგებს more-მდე c-ს ჯერადების რაოდენობას, შემდომ (less + mod)-მდე 
+    c-ს ჯერადების რაოდენობას და შემდგომ მათ სხვაობას. less + mod საჭიროა, 
     ვინაიდან გვინდა გამოვტოვოთ less როცა იგი თვითონ c-ს ჯერადია
     '''
     mod = -1
     if less < 0 and more > 0 :
         mod = 1
-    count = ((more) // c) - ((less + mod) // c)
+    count = (more // c) - ((less + mod) // c)
     return count
 
 a = int(input("a: "))
