@@ -15,7 +15,10 @@ def find_multiples(a, b, c):
     ჯერადების რაოდენობას და შემდგომ მათ სხვაობას. less-1 საჭიროა, 
     ვინაიდან გვინდა გამოვტოვოთ less როცა იგი თვითონ c-ს ჯერადია
     '''
-    count = (more // c) - ((less - 1) // c)
+    mod = -1
+    if less < 0 and more > 0 :
+        mod = 1
+    count = ((more) // c) - ((less + mod) // c)
     return count
 
 a = int(input("a: "))
