@@ -275,7 +275,9 @@ def main():
         base = 10
         print("Signed magnitude:", signed_magnitude_dec_to_bin(number))
         print("Two's complement:", twos_complement_dec_to_bin(number))
+        print("One's complement:", ones_complement_dec_to_bin(number))
     elif choice == 2:
         base = 2
         print("Signed magnitude:", signed_magnitude_bin_to_dec(number))
         print("Two's complement:", twos_complement_bin_to_dec(number))
+        print("One's complement:", ones_complement_bin_to_dec(number))
