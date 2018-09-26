@@ -113,7 +113,7 @@ def twos_complement_dec_to_bin(dec_num):
         bin_num = to_bin(raw_dec_num)
         # გავზარდოთ ბიტების რაოდენობა თუ გადასცდა მაქსიმუმს (2^(n-1)-1)
         if raw_dec_num >= 2**(bit_size - 1) - 1:
-            bin_num = "{}{}{}".format("0", "|", bin_num)
+            bin_num = "{}{}".format("0", bin_num)
         return bin_num
     # თუ უარყოფითია, განვაგრძოთ
     # გადავიყვანოთ ორობითში
@@ -135,7 +135,7 @@ def twos_complement_dec_to_bin(dec_num):
     # გავზარდოთ ბაიტების რაოდენობა თუ გასცდა უარყოფით ლიმიტს (2^(n-1))
     if raw_dec_num >= 2**(bit_size - 1):
         # მივუწეროთ 1-ები
-        bin_num = "{}{}{}".format("1", "|", bin_num)
+        bin_num = "{}{}".format("1", bin_num)
     #elif len(bin_num) > bit_size: # მოვაჭრათ მარცხნიდან თუ ზედმეტია
     #    bin_num = bin_num[len(bin_num) - bit_size:]
     # გამოვიტანოთ პასუხი
