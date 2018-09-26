@@ -128,13 +128,13 @@ def twos_complement_dec_to_bin(dec_num):
     log("temp_dec:", temp_dec)
     bin_num = to_bin(temp_dec)
     log("bin_num:", bin_num)
-    # დავუმატოთ ათობითში და უკან გადაყვანისას დაკარგული ბიტები
+    # დავუმატოთ ათობითში და მერე ორობითში გადაყვანისას დაკარგული ბიტები
     if len(bin_num) < len(flipped_bin_num):
         lost_bits = flipped_bin_num[:len(flipped_bin_num) - len(bin_num)]
         bin_num = "{}{}".format(lost_bits, bin_num)
-    # გავზარდოთ ბაიტების რაოდენობა თუ გასცდა უარყოფით ლიმიტს (2^(n-1))
+    # გავზარდოთ ბიტების რაოდენობა თუ გასცდა უარყოფით ლიმიტს (2^(n-1))
     if raw_dec_num >= 2**(bit_size - 1):
-        # მივუწეროთ 1-ები
+        # მივუწეროთ 1-იანი
         bin_num = "{}{}".format("1", bin_num)
     #elif len(bin_num) > bit_size: # მოვაჭრათ მარცხნიდან თუ ზედმეტია
     #    bin_num = bin_num[len(bin_num) - bit_size:]
@@ -162,23 +162,52 @@ def twos_complement_bin_to_dec(bin_num):
 def ones_complement_dec_to_bin(dec_num):
     # გადაიყვანს ნიშნიან ათობით რიცხვს ორობით შეკვეცილ ფუძის დამატებით გამოსახულებაში
     assert type(dec_num) is str
-    # თუ დადებითია, პირდაპირ გადავიყვანოთ
-    if get_dec_sign(dec_num) == "+":
-        return to_bin(int(dec_num))
+    # დავითრიოთ ნიშანი
+    sign = get_dec_sign(dec_num)
     # წავაჭრათ ნიშანი
-    raw_dec_num = dec_num
+    raw_dec_num = 0
     if dec_num[0] == "+" or dec_num[0] == "-":
-        raw_dec_num = dec_num[1:]
+        raw_dec_num = int(dec_num[1:])
+    else:
+        raw_dec_num = int(dec_num)
+    # დავიმახსოვროთ ბიტების ზომა
+    bit_size = get_bit_size(raw_dec_num)
+    # თუ დადებითია, პირდაპირ გადავიყვანოთ
+    if sign == "+":
+        bin_num = to_bin(raw_dec_num)
+        # თუ გადაცდა მაქსიმუმს (2^(n-1)-1) გავზარდოთ ზომა ერთი ბიტით
+        if raw_dec_num >= 2**(bit_size - 1) - 1:
+            bin_num = "{}{}".format("0", bin_num)
+        return bin_num
+    # თუ უარყოფითია, განვაგრძოთ
     # გადავიყვანოთ ორობითში
     raw_bin_num = to_bin(int(raw_dec_num))
+    # გავზარდოთ ზომა ერთი ბიტით თუ გასცდა მინიმუმის ლიმიტს (2^(n-1)-1)
+    if raw_dec_num >= 2**(bit_size - 1) - 1:
+        raw_bin_num = "{}{}".format("0", raw_bin_num)
     # დავატრიალოთ ბიტები
-    flipped_bin_num = flip_bits(raw_bin_num)
-    return flipped_bin_num
+    bin_num = flip_bits(raw_bin_num)
+    return bin_num
 
 
 def ones_complement_bin_to_dec(bin_num):
     # გაბრუნებს შეკვეცილი ფუძის დამატებითი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით მნიშვნელობას
-    pass 
+    assert type(bin_num) is str
+    # დავადგინოთ ნიშანი
+    sign = "+"
+    if bin_num[0] == "1":
+        sign = "-"
+    # თუ დადებითია, პირდაპირ გადავიყვანოთ
+    if sign == "+":
+        return to_dec(bin_num)
+    # თუ უარყოფითია, განვაგრძოთ
+    # დავატრიალოთ ბიტები
+    flipped_bin_num = flip_bits(bin_num)
+    # გადავიყვანოთ ათობითში
+    raw_dec_num = to_dec(flipped_bin_num)
+    # მივუწეროთ ნიშანი
+    dec_num = "{}{}".format(sign, raw_dec_num)
+    return dec_num
 
 def main():
     # შევიყვანოთ ინფორმაცია
