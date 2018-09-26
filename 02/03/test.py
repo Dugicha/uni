@@ -36,7 +36,22 @@ class TestMain(unittest.TestCase):
         self.assertEqual(get_dec_sign("-0"), "-")
 
     def test_excess_bias_dec_to_bin(self):
-        pass
+        self.assertEqual(excess_bias_dec_to_bin("1"), "1")
+        self.assertEqual(excess_bias_dec_to_bin("0"), "0")
+        self.assertEqual(excess_bias_dec_to_bin("-1"), "01")
+        self.assertEqual(excess_bias_dec_to_bin("-2"), "00")
+        self.assertEqual(excess_bias_dec_to_bin("2"), "110")
+        self.assertEqual(excess_bias_dec_to_bin("3"), "111")
+        self.assertEqual(excess_bias_dec_to_bin("-3"), "001")
+        self.assertEqual(excess_bias_dec_to_bin("-4"), "000")
+        self.assertEqual(excess_bias_dec_to_bin("-7"), "0001")
+        self.assertEqual(excess_bias_dec_to_bin("7"), "1111")
+        self.assertEqual(excess_bias_dec_to_bin("-8"), "0000")
+        self.assertEqual(excess_bias_dec_to_bin("8"), "11000")
+        self.assertEqual(excess_bias_dec_to_bin("69"), "11000101")
+        self.assertEqual(excess_bias_dec_to_bin("-69"), "00111011")
+        self.assertEqual(excess_bias_dec_to_bin("6"), "1110")
+        self.assertEqual(excess_bias_dec_to_bin("5"), "1101")
 
 if __name__ == "__main__":
     unittest.main()

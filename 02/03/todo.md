@@ -1,8 +1,8 @@
 - clean up twos_complement_dec_to_bin
-- fix twos_compl_bin_to_dec
 - fix comments
 - clean up logs
-
+- add excess_bias_dec_to_bin
+- add excess_bias_bin_to_dec
 - prepare for sending
   - remove all logs
   - fix and minimize comments
