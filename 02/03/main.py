@@ -15,7 +15,6 @@
 
 def flip_bits(num):
     """ატრიალებს ორობითი რიცხვის ბიტებს."""
-    assert type(num) is str
     ans = ""
     for c in num:
         if c == "0":
@@ -26,7 +25,6 @@ def flip_bits(num):
 
 def to_bin(num):
     """გადაიყვანს ათობითიდან ორობითში უნიშნოდ."""
-    assert type(num) is int
     ans = ""
     quotent = num
     while True:
@@ -40,7 +38,6 @@ def to_bin(num):
 def get_bit_size(dec_num):
     """გამოიტანს ათობითი რიცხვის ორობითში ჩასაწერად საჭირო ბიტების 
     რაოდენობას."""
-    assert type(dec_num) is int
     quotent = dec_num
     bit_size = 0
     while True:
@@ -53,7 +50,6 @@ def get_bit_size(dec_num):
 
 def to_dec(num, sign="+"):
     """გადაიყვანს ორობითიდან ათობითში."""
-    assert type(num) is str
     ans = 0
     for i, c in enumerate(num):
         pos = len(num) - i - 1
@@ -67,7 +63,6 @@ def to_dec(num, sign="+"):
 
 def get_dec_sign(dec_num):
     """აბრუნებს ათობითი რიცხვის ნიშანს ("-" ან "+")."""
-    assert type(dec_num) is str
     if dec_num[0] == "-":
         return "-"
     else:
@@ -75,7 +70,6 @@ def get_dec_sign(dec_num):
 
 def signed_magnitude_dec_to_bin(dec_num):
     """გადაიყვანს ნიშნიან ათობით რიცხვს ორობით ნიშნიან გამოსახულებაში."""
-    assert type(dec_num) is str
     sign = get_dec_sign(dec_num)
     raw_num = dec_num
     if dec_num[0] == "-" or dec_num[0] == "+":
@@ -89,7 +83,6 @@ def signed_magnitude_dec_to_bin(dec_num):
 def signed_magnitude_bin_to_dec(bin_num):
     """აბრუნებს ნიშნიანი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით
     მნიშვნელობას."""
-    assert type(bin_num) is str
     # დავითრიოთ ნიშანი
     sign = "+"
     if bin_num[0] == "1":
@@ -105,7 +98,6 @@ def signed_magnitude_bin_to_dec(bin_num):
 def twos_complement_dec_to_bin(dec_num):
     """გადაიყვანს ნიშნიან ათობით რიცხვს ორობით ფუძის დამატებით 
     გამოსახულებაში."""
-    assert type(dec_num) is str
     # დავადგინოთ ნიშანი
     sign = get_dec_sign(dec_num)
     # წავაჭრათ ნიშანი (იგივე რაც abs ოღონდ სტრინგისთვის)
@@ -145,7 +137,6 @@ def twos_complement_dec_to_bin(dec_num):
 def twos_complement_bin_to_dec(bin_num):
     """აბრუნებს ფუძის დამატებითი გამოსახულებით ჩაწერილი ორობითი
     რიცხვის ათობით მნიშვნელობას."""
-    assert type(bin_num) is str
     # დავადგინოთ ნიშანი
     sign = "+"
     if bin_num[0] == "1":
@@ -164,7 +155,6 @@ def twos_complement_bin_to_dec(bin_num):
 def ones_complement_dec_to_bin(dec_num):
     """გადაიყვანს ნიშნიან ათობით რიცხვს ორობით შეკვეცილ ფუძის 
     დამატებით გამოსახულებაში."""
-    assert type(dec_num) is str
     # დავითრიოთ ნიშანი
     sign = get_dec_sign(dec_num)
     # წავაჭრათ ნიშანი
@@ -196,7 +186,6 @@ def ones_complement_dec_to_bin(dec_num):
 def ones_complement_bin_to_dec(bin_num):
     """აბრუნებს შეკვეცილი ფუძის დამატებითი გამოსახულებით ჩაწერილი 
     ორობითი რიცხვის ათობით მნიშვნელობას."""
-    assert type(bin_num) is str
     # დავადგინოთ ნიშანი
     sign = "+"
     if bin_num[0] == "1":
@@ -216,7 +205,6 @@ def ones_complement_bin_to_dec(bin_num):
 def excess_bias_dec_to_bin(dec_num):
     """გადაიყვანს ნიშნიან ათობით რიცხვს ორობით წანაცვლებით 
     გამოსახულებაში."""
-    assert type(dec_num) is str
     # დავითრიოთ ნიშანი
     sign = get_dec_sign(dec_num)
     # დავითრიოთ უმი (უნიშნო/მოდული) რიცხვი
@@ -254,7 +242,6 @@ def excess_bias_dec_to_bin(dec_num):
 def excess_bias_bin_to_dec(bin_num):
     """აბრუნებს წანაცვლებითი გამოსახულებით ჩაწერილი ორობითი რიცხვის 
     ათობით მნიშვნელობას."""
-    assert type(bin_num) is str
     if bin_num == "0" or bin_num == "1":
         return str(to_dec(bin_num))
     # დავითრიოთ ნიშანი

@@ -1,2 +1,0 @@
-- prepare for sending
-  - remove asserts
