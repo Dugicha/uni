@@ -1,5 +1,5 @@
 import unittest
-from main import (to_bin, to_dec, get_bit_size, get_dec_sign, 
+from main import (to_bin, to_dec, get_bit_size, get_dec_sign, flip_bits,
     excess_bias_dec_to_bin, excess_bias_bin_to_dec)
 
 class TestMain(unittest.TestCase):
@@ -27,6 +27,14 @@ class TestMain(unittest.TestCase):
         self.assertEqual(get_bit_size(1), 1)
         self.assertEqual(get_bit_size(127), 7)
         self.assertEqual(get_bit_size(128), 8)
+
+    def test_flip_bits(self):
+        self.assertEqual(flip_bits("10"), "01")
+        self.assertEqual(flip_bits("0"), "1")
+        self.assertEqual(flip_bits("1"), "0")
+        self.assertEqual(flip_bits("101111000001"), "010000111110")
+        self.assertEqual(flip_bits("101"), "010")
+        self.assertEqual(flip_bits("10000"), "01111")
 
     def test_get_dec_sign(self):
         self.assertEqual(get_dec_sign("+100"), "+")

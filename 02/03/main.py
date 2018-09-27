@@ -264,11 +264,11 @@ def main():
     # ამოვარჩევინოთ ფუძე (ამეორებს სანამ სწორი არ ამოირჩია)
     base_choice = ""
     while base_choice not in range(1, 3):
-        base_choice = int(input('''\nChoose the base of your number: 
+        base_choice = int(input('''Choose the base of your number: 
             1) Base 10
             2) Base 2\n'''))
         if base_choice not in range(1, 3):
-            print("Wrong choice! Try again.")
+            print("Wrong choice! Try again.\n")
     # ამოვარჩევინოთ რიცხვი
     number = input("Number: ")
     # წარმოდგენის მეთოდის არჩევანი (ამეორებს სანამ სწორი არ ამოირჩია)
@@ -281,7 +281,7 @@ def main():
             4) Excess-bias
             5) All four\n'''))
         if method not in range(1, 6):
-            print("Wrong choice! Try again.")
+            print("Wrong choice! Try again.\n")
     # პასუხის გამოტანა
     if base_choice == 1: # ათობითიდან ორობითში
         if method == 1 or method == 5:
@@ -301,5 +301,6 @@ def main():
             print("One's complement:", ones_complement_bin_to_dec(number))
         if method == 4 or method == 5:
             print("Excess-bias:", excess_bias_bin_to_dec(number))
+    input("Press any key to continue.")
 
 main()
