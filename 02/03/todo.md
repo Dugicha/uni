@@ -1,6 +1,2 @@
-- clean up twos_complement_dec_to_bin
-- fix comments
-- clean up logs
 - prepare for sending
-  - remove all logs
-  - fix and minimize comments
+  - remove asserts

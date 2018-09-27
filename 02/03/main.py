@@ -1,4 +1,4 @@
-'''
+"""
     ნიკა ოთიაშვილი, დავალება 2.3.
 
     გადაჰყავს ნიშნიანი ათობითი რიცხვი ორობითში და პირიქით ოთხი გზით:
@@ -6,19 +6,15 @@
     2. ფუძის დამატებითი - two's complement;
     3. შეკვეცილი ფუძის დამატებითი - one's complement;
     4. წანაცვლებითი - excess-bias / biased representation.
+    მეხუთე არჩევანი ოთხივეს პასუხს მოგვცემს
 
     ათობითიდან ორობითში გადაყვანისას ბიტების რაოდენობას ავტომატურად 
     ადგენს გადაცემულ რიცხვთან უახლოესი ზედა ორის ხარისხით (ჩვენ რომ 
     არ მოგვიწიოს ყოველ ჯერზე ბიტების რაოდენობის მითითება).
-'''
-
-debug_mode = False
-def log(msg, *m):
-    if debug_mode:
-        print("LOG:", msg, *m)
+"""
 
 def flip_bits(num):
-    # ატრიალებს ორობითი რიცხვის ბიტებს
+    """ატრიალებს ორობითი რიცხვის ბიტებს."""
     assert type(num) is str
     ans = ""
     for c in num:
@@ -29,7 +25,7 @@ def flip_bits(num):
     return ans
 
 def to_bin(num):
-    # გადაიყვანს ათობითიდან ორობითში უნიშნოდ
+    """გადაიყვანს ათობითიდან ორობითში უნიშნოდ."""
     assert type(num) is int
     ans = ""
     quotent = num
@@ -42,7 +38,8 @@ def to_bin(num):
     return ans
 
 def get_bit_size(dec_num):
-    # გამოიტანს ათობითი რიცხვის ორობითში ჩასაწერად საჭირო ბიტების რაოდენობას
+    """გამოიტანს ათობითი რიცხვის ორობითში ჩასაწერად საჭირო ბიტების 
+    რაოდენობას."""
     assert type(dec_num) is int
     quotent = dec_num
     bit_size = 0
@@ -55,7 +52,7 @@ def get_bit_size(dec_num):
     return bit_size
 
 def to_dec(num, sign="+"):
-    # გადაიყვანს ორობითიდან ათობითში
+    """გადაიყვანს ორობითიდან ათობითში."""
     assert type(num) is str
     ans = 0
     for i, c in enumerate(num):
@@ -69,7 +66,7 @@ def to_dec(num, sign="+"):
         return "{}{}".format("-", ans)
 
 def get_dec_sign(dec_num):
-    # აბრუნებს ათობითი რიცხვის ნიშანს ("-" ან "+")
+    """აბრუნებს ათობითი რიცხვის ნიშანს ("-" ან "+")."""
     assert type(dec_num) is str
     if dec_num[0] == "-":
         return "-"
@@ -77,7 +74,7 @@ def get_dec_sign(dec_num):
         return "+"
 
 def signed_magnitude_dec_to_bin(dec_num):
-    # გადაიყვანს ნიშნიან ათობით რიცხვს ორობით ნიშნიან გამოსახულებაში
+    """გადაიყვანს ნიშნიან ათობით რიცხვს ორობით ნიშნიან გამოსახულებაში."""
     assert type(dec_num) is str
     sign = get_dec_sign(dec_num)
     raw_num = dec_num
@@ -90,7 +87,8 @@ def signed_magnitude_dec_to_bin(dec_num):
         return "{}{}".format("0", bin_num)
 
 def signed_magnitude_bin_to_dec(bin_num):
-    # აბრუნებს ნიშნიანი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით მნიშვნელობას
+    """აბრუნებს ნიშნიანი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით
+    მნიშვნელობას."""
     assert type(bin_num) is str
     # დავითრიოთ ნიშანი
     sign = "+"
@@ -105,7 +103,8 @@ def signed_magnitude_bin_to_dec(bin_num):
     return dec_num
 
 def twos_complement_dec_to_bin(dec_num):
-    # გადაიყვანს ნიშნიან ათობით რიცხვს ორობით ფუძის დამატებით გამოსახულებაში
+    """გადაიყვანს ნიშნიან ათობით რიცხვს ორობით ფუძის დამატებით 
+    გამოსახულებაში."""
     assert type(dec_num) is str
     # დავადგინოთ ნიშანი
     sign = get_dec_sign(dec_num)
@@ -117,7 +116,6 @@ def twos_complement_dec_to_bin(dec_num):
         raw_dec_num = int(dec_num)
     # ბიტების რაოდენობა დავიმახსოვროთ
     bit_size = get_bit_size(raw_dec_num)
-    log("bit_size:", bit_size)
     # თუ დადებითია, პირდაპირ გადავიყვანოთ
     if sign == "+":
         bin_num = to_bin(raw_dec_num)
@@ -128,16 +126,12 @@ def twos_complement_dec_to_bin(dec_num):
     # თუ უარყოფითია, განვაგრძოთ
     # გადავიყვანოთ ორობითში
     raw_bin_num = to_bin(raw_dec_num)
-    log("raw_bin_num:", raw_bin_num)
     # დავატრიალოთ ბიტები
     flipped_bin_num = flip_bits(raw_bin_num)
-    log("flipped_bin_num:", flipped_bin_num)
     # გადავიყვანოთ ათობითში, დავუმატოთ 1 და გადმოვიყვანოთ ორობითში 
     # TODO: აქ იკარგება მარცხენა ნულები
     temp_dec = to_dec(flipped_bin_num) + 1
-    log("temp_dec:", temp_dec)
     bin_num = to_bin(temp_dec)
-    log("bin_num:", bin_num)
     # დავუმატოთ ათობითში და მერე ორობითში გადაყვანისას დაკარგული ბიტები
     if len(bin_num) < len(flipped_bin_num):
         lost_bits = flipped_bin_num[:len(flipped_bin_num) - len(bin_num)]
@@ -146,13 +140,11 @@ def twos_complement_dec_to_bin(dec_num):
     if raw_dec_num >= 2**(bit_size - 1):
         # მივუწეროთ 1-იანი
         bin_num = "{}{}".format("1", bin_num)
-    #elif len(bin_num) > bit_size: # მოვაჭრათ მარცხნიდან თუ ზედმეტია
-    #    bin_num = bin_num[len(bin_num) - bit_size:]
-    # გამოვიტანოთ პასუხი
     return bin_num
     
 def twos_complement_bin_to_dec(bin_num):
-    # აბრუნებს ფუძის დამატებითი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით მნიშვნელობას
+    """აბრუნებს ფუძის დამატებითი გამოსახულებით ჩაწერილი ორობითი
+    რიცხვის ათობით მნიშვნელობას."""
     assert type(bin_num) is str
     # დავადგინოთ ნიშანი
     sign = "+"
@@ -170,7 +162,8 @@ def twos_complement_bin_to_dec(bin_num):
     return dec_num
 
 def ones_complement_dec_to_bin(dec_num):
-    # გადაიყვანს ნიშნიან ათობით რიცხვს ორობით შეკვეცილ ფუძის დამატებით გამოსახულებაში
+    """გადაიყვანს ნიშნიან ათობით რიცხვს ორობით შეკვეცილ ფუძის 
+    დამატებით გამოსახულებაში."""
     assert type(dec_num) is str
     # დავითრიოთ ნიშანი
     sign = get_dec_sign(dec_num)
@@ -201,7 +194,8 @@ def ones_complement_dec_to_bin(dec_num):
 
 
 def ones_complement_bin_to_dec(bin_num):
-    # აბრუნებს შეკვეცილი ფუძის დამატებითი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით მნიშვნელობას
+    """აბრუნებს შეკვეცილი ფუძის დამატებითი გამოსახულებით ჩაწერილი 
+    ორობითი რიცხვის ათობით მნიშვნელობას."""
     assert type(bin_num) is str
     # დავადგინოთ ნიშანი
     sign = "+"
@@ -220,7 +214,8 @@ def ones_complement_bin_to_dec(bin_num):
     return dec_num
 
 def excess_bias_dec_to_bin(dec_num):
-    # გადაიყვანს ნიშნიან ათობით რიცხვს ორობით წანაცვლებით გამოსახულებაში
+    """გადაიყვანს ნიშნიან ათობით რიცხვს ორობით წანაცვლებით 
+    გამოსახულებაში."""
     assert type(dec_num) is str
     # დავითრიოთ ნიშანი
     sign = get_dec_sign(dec_num)
@@ -232,15 +227,16 @@ def excess_bias_dec_to_bin(dec_num):
         raw_dec_num = int(dec_num)
     # მოცემული რიცხვის ჩასაწერად საჭირო ბიტების რაოდენობა
     in_bit_size = get_bit_size(raw_dec_num)
-    # თუ 1 ან 0 არის მოცემული, ე.ი. ერთ ბიტიანი ჩაწერაა და პირდაპირ გადავიყვანოთ
+    # თუ 1 ან 0-ა მოცემული, ერთ ბიტიანი ჩაწერაა და პირდაპირ გადავიყვანოთ
     if int(dec_num) == 0 or int(dec_num) == 1:
         return to_bin(raw_dec_num)
     # თუ -1 გვაქვს მოცემული, ორი ბიტია საჭირო მის ჩასაწერად
     if in_bit_size == 1:
         in_bit_size = 2
-    # დავადგინოთ რამდენი ბიტი დაგვჭირდება ამ რიცხვის ჩასაწერად წანაცვლებით წარმოდგენაში
+    """დავადგინოთ რამდენი ბიტი დაგვჭირდება ამ რიცხვის ჩასაწერად წანაცვლებით 
+    წარმოდგენაში"""
     bit_size = in_bit_size
-    # თუ ზედა ან ქვედა ლიმიტს ასცდა, ერთით მეტი ბიტი გვჭირდება მის ჩასაწერად 
+    # თუ ზედა ან ქვედა ლიმიტს ასცდა, ერთით მეტი ბიტი გვჭირდება მის ჩასაწერად
     if sign == "+" and raw_dec_num > 2**(in_bit_size - 1) - 1:
         bit_size += 1
     elif sign =="-" and raw_dec_num > 2**(in_bit_size - 1):
@@ -256,7 +252,8 @@ def excess_bias_dec_to_bin(dec_num):
     return bin_num
 
 def excess_bias_bin_to_dec(bin_num):
-    # აბრუნებს წანაცვლებითი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით მნიშვნელობას
+    """აბრუნებს წანაცვლებითი გამოსახულებით ჩაწერილი ორობითი რიცხვის 
+    ათობით მნიშვნელობას."""
     assert type(bin_num) is str
     if bin_num == "0" or bin_num == "1":
         return str(to_dec(bin_num))
@@ -269,11 +266,12 @@ def excess_bias_bin_to_dec(bin_num):
     # წავანაცვლოთ
     offset = 2**(bit_size - 1)
     offset_dec_num = to_dec(bin_num)
-    #log("offset_dec_num:", offset_dec_num)
     dec_num = offset_dec_num - offset
     return str(dec_num)
 
 def main():
+    """ვეკითხებით მომხმარებელს გადასაყვან რიცხვს და წარმოდგენის ფორმას. 
+    შემდგომ გამოგვაქვს პასუხი"""
     # ინფორმაცია ბიტების ავტომატურ დადგენაზე
     print("Bit size is automatically detected depending on your number.")
     # ამოვარჩევინოთ ფუძე (ამეორებს სანამ სწორი არ ამოირჩია)
