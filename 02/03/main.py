@@ -226,7 +226,6 @@ def excess_bias_dec_to_bin(dec_num):
         raw_dec_num = int(dec_num[1:])
     else:
         raw_dec_num = int(dec_num)
-    log("raw_dec_num:", raw_dec_num)
     # მოცემული რიცხვის ჩასაწერად საჭირო ბიტების რაოდენობა
     in_bit_size = get_bit_size(raw_dec_num)
     # თუ 1 ან 0 არის მოცემული, ე.ი. ერთ ბიტიანი ჩაწერაა და პირდაპირ გადავიყვანოთ
@@ -242,15 +241,11 @@ def excess_bias_dec_to_bin(dec_num):
         bit_size += 1
     elif sign =="-" and raw_dec_num > 2**(in_bit_size - 1):
         bit_size += 1
-    log("bit_size:", bit_size)
     # წავანაცვლოთ
     offset = 2**(bit_size - 1)
-    log("offset:", offset)
     offset_dec_num = int(dec_num) + offset
-    log("offset_dec_num:", offset_dec_num)
     # გადავიყვანოთ ორობითში
     bin_num = to_bin(offset_dec_num)
-    log("bin_num:", bin_num)
     # თუ უარყოფითია, გვიწევს რომ შევავსოთ დარჩენილი ბიტები 0-ებით
     if sign == "-":
         bin_num = "{}{}".format("0" * (bit_size - len(bin_num)), bin_num)
@@ -258,7 +253,21 @@ def excess_bias_dec_to_bin(dec_num):
 
 def excess_bias_bin_to_dec(bin_num):
     # აბრუნებს წანაცვლებითი გამოსახულებით ჩაწერილი ორობითი რიცხვის ათობით მნიშვნელობას
-    pass
+    assert type(bin_num) is str
+    if bin_num == "0" or bin_num == "1":
+        return str(to_dec(bin_num))
+    # დავითრიოთ ნიშანი
+    sign = "+"
+    if bin_num[0] == "0":
+        sign = "-"
+    # შემოტანილი რიცხვის ბიტების ზომა
+    bit_size = len(bin_num)
+    # წავანაცვლოთ
+    offset = 2**(bit_size - 1)
+    offset_dec_num = to_dec(bin_num)
+    #log("offset_dec_num:", offset_dec_num)
+    dec_num = offset_dec_num - offset
+    return str(dec_num)
 
 def main():
     # შევიყვანოთ ინფორმაცია
