@@ -12,7 +12,7 @@
     არ მოგვიწიოს ყოველ ჯერზე ბიტების რაოდენობის მითითება).
 '''
 
-debug_mode = True
+debug_mode = False
 def log(msg, *m):
     if debug_mode:
         print("LOG:", msg, *m)
@@ -98,7 +98,11 @@ def signed_magnitude_bin_to_dec(bin_num):
         sign = "-"
     raw_bin_num = bin_num[1:]
     raw_dec_num = to_dec(raw_bin_num)
-    return "{}{}".format(sign, raw_dec_num)
+    dec_num = raw_dec_num
+    # მივუწეროთ მინუსი თუ უარყოფითია
+    if sign == "-":
+        dec_num = "{}{}".format(sign, dec_num)
+    return dec_num
 
 def twos_complement_dec_to_bin(dec_num):
     # გადაიყვანს ნიშნიან ათობით რიცხვს ორობით ფუძის დამატებით გამოსახულებაში
@@ -270,23 +274,47 @@ def excess_bias_bin_to_dec(bin_num):
     return str(dec_num)
 
 def main():
-    # შევიყვანოთ ინფორმაცია
-    number = input("Number: ")    
-    choice = int(input('''Choose the base of your number: 
-        1) Base 10
-        2) Base 2\n'''))
-    # method = int(input('''Choose method: 
-    #     1)signed magnitude
-    #     2)two's complement
-    #     3)one's complement
-    #     4)excess-bias\n'''))
-    if choice == 1:
-        base = 10
-        print("Signed magnitude:", signed_magnitude_dec_to_bin(number))
-        print("Two's complement:", twos_complement_dec_to_bin(number))
-        print("One's complement:", ones_complement_dec_to_bin(number))
-    elif choice == 2:
-        base = 2
-        print("Signed magnitude:", signed_magnitude_bin_to_dec(number))
-        print("Two's complement:", twos_complement_bin_to_dec(number))
-        print("One's complement:", ones_complement_bin_to_dec(number))
+    # ინფორმაცია ბიტების ავტომატურ დადგენაზე
+    print("Bit size is automatically detected depending on your number.")
+    # ამოვარჩევინოთ ფუძე (ამეორებს სანამ სწორი არ ამოირჩია)
+    base_choice = ""
+    while base_choice not in range(1, 3):
+        base_choice = int(input('''\nChoose the base of your number: 
+            1) Base 10
+            2) Base 2\n'''))
+        if base_choice not in range(1, 3):
+            print("Wrong choice! Try again.")
+    # ამოვარჩევინოთ რიცხვი
+    number = input("Number: ")
+    # წარმოდგენის მეთოდის არჩევანი (ამეორებს სანამ სწორი არ ამოირჩია)
+    method = 0
+    while method not in range(1, 6):
+        method = int(input('''Choose method: 
+            1) Signed magnitude
+            2) Two's complement
+            3) One's complement
+            4) Excess-bias
+            5) All four\n'''))
+        if method not in range(1, 6):
+            print("Wrong choice! Try again.")
+    # პასუხის გამოტანა
+    if base_choice == 1: # ათობითიდან ორობითში
+        if method == 1 or method == 5:
+            print("Signed magnitude:", signed_magnitude_dec_to_bin(number))
+        if method == 2 or method == 5:
+            print("Two's complement:", twos_complement_dec_to_bin(number))
+        if method == 3 or method == 5:
+            print("One's complement:", ones_complement_dec_to_bin(number))
+        if method == 4 or method == 5:
+            print("Excess-bias:", excess_bias_dec_to_bin(number))
+    elif base_choice == 2: # ორობითდან ათობითში
+        if method == 1 or method == 5:
+            print("Signed magnitude:", signed_magnitude_bin_to_dec(number))
+        if method == 2 or method == 5:
+            print("Two's complement:", twos_complement_bin_to_dec(number))
+        if method == 3 or method == 5:
+            print("One's complement:", ones_complement_bin_to_dec(number))
+        if method == 4 or method == 5:
+            print("Excess-bias:", excess_bias_bin_to_dec(number))
+
+main()
