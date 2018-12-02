@@ -1,0 +1,74 @@
+#+TITLE: დავალება
+#+AUTHOR: ნიკოლოზ ოთიაშვილი
+#+EMAIL: nikoloz.otiashvili.1@btu.edu.ge
+#+SUBTITLE: ნიკოლოზ ოთიაშვილი, ჯგუფი 6
+#+OPTIONS: toc:nil num:nil
+
+* დავალება
+მოცემული კოდი K&R-ის წიგნიდან:
+#+BEGIN_SRC
+  #include <stdio.h>
+
+  main()
+  {
+    printf("hello, world\n");
+  }
+#+END_SRC
+გადააკეთეთ ორი გზით ისე, რომ gcc-მ ერორები არ მოგვცეს.
+
+* პასუხი
+gcc ერორებს გვაძლევს, ვინაიდან კოდი არღვევს C-ს სტანდარტში მითითებულ წესებს:
+
+ფუნქცია, რომელიც პროგრამის გაშვებისას გამოიძახება "main" ეწოდება. იგი უნდა იყოს int ტიპის პარამეტრების გარეშე:
+#+BEGIN_SRC
+  int main(void) { /* ... */ }
+#+END_SRC
+ან ორი პარამეტრით, რომლებიდანაც პირველი პროგრამისთვის გადაცემული არგუმენტების რაოდენობას მიუთითებს, ხოლო მეორე სტრინგების პოინტერებს, რომლებიც იმპლემენტაციის მიხედვით გადაეცემა პროგრამას გაშვებისას:
+#+BEGIN_SRC
+  int main(int argc, char *argv[]) { /* ... */ }
+#+END_SRC
+(ISO/IEC 9899:2011, Programming languages -- C, გვ. 13).
+
+შესაბამისად, შეგვიძლია საწყისი კოდი გადავაკეთოთ რამდენიმე გვარად:
+
+1.
+   #+BEGIN_SRC
+     #include <stdio.h>
+
+     int main(void) {
+       printf("Hello, world!\n");
+     }
+   #+END_SRC
+2.
+   #+BEGIN_SRC
+     #include <stdio.h>
+
+     int main(int argc, char *argv[]) {
+       printf("Hello, world!\n");
+       return 0;
+     }
+   #+END_SRC
+
+int ტიპის ფუნქციის ბოლო "}" სიმბოლოს როდესაც მიაღწევს გამშვები, "return 0" ნაგულისხმებია.  როდესაც 0-ს აბრუნებს "main" ფუნქცია, იგივეა რაც "exit"-ის გამოძახება. (ISO/IEC 9899:2011, Programming languages -- C, გვ. 14).
+
+ფიგურული ფრჩხილების ადგილების ცვლილება არაფერს ცვლის, ასეთი სტილი მირჩევნია
+
+* დამატებითი
+** ბაშის კომანდის გაშვება C-დან
+   არ ვიცი რამდენად კარგია, მაგრამ მარტივი დაგუგლვით "system()" ფუნქცია აღმოვაჩინე, რომელიც stdlib.h-შია განსაზღვრული:
+   #+BEGIN_SRC
+     int main(int argc, char *argv[]) {
+       int status = system("ls -la");
+       return 0;
+     }
+   #+END_SRC
+   გავუშვი gcc 
+   : gcc main.c -o main.out; ./main.out
+   და სწორი შედეგი მომცა:
+   #+BEGIN_SRC
+   total 16
+   drwxrwxrwx 1 nika nika  512 Dec  2 17:14 .
+   drwxrwxrwx 1 nika nika  512 Dec  2 16:30 ..
+   -rwxrwxrwx 1 nika nika  103 Dec  2 17:09 main.c
+   -rwxrwxrwx 1 nika nika 8608 Dec  2 17:14 main.out
+   #+END_SRC
