@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Author: Nikoloz Otiashvili
 // Verifies whether getchar() != EOF is 0 or 1
 int main() {
   while((getchar() != EOF) == 0) {
