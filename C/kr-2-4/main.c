@@ -14,6 +14,8 @@ int main(void)
 	 char test2[] = "loremipsum";
 	 squeeze(test2, "texaslimit");
 	 printf("squeeze(loremipsum, texaslimit) is %s\n", test2);
+
+	 return 0;
 }
 
 /* Delete all chars from s1 that occur in s2 */
