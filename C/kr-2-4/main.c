@@ -23,7 +23,7 @@ void squeeze(char s1[], char s2[])
 {
 	 int copy_index = 0;
 	 for (int i = 0; s1[i] != '\0'; ++i) {
-		  
+
 		  unsigned char occurrence_found = 0;
 
 		  for (int j = 0; s2[j] != '\0'; ++j) {
