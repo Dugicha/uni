@@ -12,7 +12,7 @@ int main(void)
 	 printf("Input characters until newline:\n");
 	 for (int i=0; i < lim-1; ++i) {
 		  if ((c = getchar()) == '\n')
-			  break;
+			   break;
 		  if (c == EOF)
 			   break;
 		  s[i] = c;
