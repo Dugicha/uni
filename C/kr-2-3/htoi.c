@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 		  printf("Argument missing\n");
 		  return 1;
 	 }
-	 
+
 	 printf("%i\n", htoi(argv[1]));
 	 return 0;
 }
@@ -32,12 +32,12 @@ int htoi(char *hex)
 	 int start = 0;
 	 if (len > 0 && (hex[1] == 'x' || hex[1] == 'X'))
 		  start = 2;
-	 
+
 	 int ans = 0;
 	 for (int i = start; i < len; ++i) {
 		  ans += htoi_single(hex[i]) * pow(16, len - i - 1);
 	 }
-	 
+
 	 return ans;
 }
 
@@ -49,7 +49,7 @@ int htoi_single(char hex_digit)
 	 else if (hex_digit >= 'a' && hex_digit <= 'f')
 		  return 10 + hex_digit - 'a';
 	 else
-	 	  return 10 + hex_digit - 'A';
+		  return 10 + hex_digit - 'A';
 }
 
 /* Returns `num` to the power of `amount` */
