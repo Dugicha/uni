@@ -6,18 +6,18 @@
 #define lim 100
 int main(void)
 {
-	 char s[lim];
-	 char c;
+     char s[lim];
+     char c;
 
-	 printf("Input characters until newline:\n");
-	 for (int i=0; i < lim-1; ++i) {
-		  if ((c = getchar()) == '\n')
-			   break;
-		  if (c == EOF)
-			   break;
-		  s[i] = c;
-	 }
+     printf("Input characters until newline:\n");
+     for (int i=0; i < lim-1; ++i) {
+	  if ((c = getchar()) == '\n')
+	       break;
+	  if (c == EOF)
+	       break;
+	  s[i] = c;
+     }
 
-	 printf("Chars were %s\n", s);
-	 return 0;
+     printf("Chars were %s\n", s);
+     return 0;
 }
