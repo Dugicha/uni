@@ -7,4 +7,4 @@ CFLAGS=-Wall -Werror -O2
 all: lowerexpr
 
 lowerexpr: lowerexpr.c
-	${CC} ${CFLAGS} lowerexpr.c -o lowerexpr
+	$(CC) $(CFLAGS) lowerexpr.c -o lowerexpr

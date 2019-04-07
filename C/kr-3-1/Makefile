@@ -7,5 +7,5 @@ CFLAGS = -Wall -Werror
 all: binsearch
 
 binsearch: binsearch.c
-	${CC} ${CFLAGS} binsearch.c -o binsearch
+	$(CC) $(CFLAGS) binsearch.c -o binsearch
 
