@@ -29,6 +29,7 @@ void reverse(char s[], size_t len)
      }
 }
 
+/* Convert int to string and format to base b */
 void itob(int n, char s[], int b)
 {
      int i = 0;
