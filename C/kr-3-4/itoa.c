@@ -26,7 +26,7 @@ void reverse(char s[], size_t len)
      }
 }
 
-/* Converts into to string */
+/* Converts int to string */
 void itoa(int n, char s[])
 {
      int i = 0;
