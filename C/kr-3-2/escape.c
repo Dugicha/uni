@@ -26,6 +26,7 @@ connects\nthis world of \t3 D\t to one of \t\t4 D\t or \t\t\t5\tD\n";
      return 0;
 }
 
+/* Copy string while displaying invisible escape sequences */
 void escape(char to[], char from[])
 {
      size_t i = 0;
@@ -61,6 +62,7 @@ void escape(char to[], char from[])
      to[j] = '\0';
 }
 
+/* Copy string while applying invisible escape sequences */
 void unescape(char to[], char from[])
 {
      size_t i = 0;
