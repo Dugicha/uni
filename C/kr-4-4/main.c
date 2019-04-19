@@ -1,5 +1,5 @@
 // Author: Nikoloz Otiashvili
-// K&R Exercise 4-3
+// K&R Exercise 4-4
 
 #include <stdio.h>
 #include <stdlib.h>
