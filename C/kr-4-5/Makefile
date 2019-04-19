@@ -6,7 +6,7 @@ CFLAGS = -Wall -Werror
 all: polish
 
 polish: main.o getop.o charstack.o calcstack.o
-	$(CC) $(CFLAGS) -o polish main.o getop.o charstack.o calcstack.o
+	$(CC) $(CFLAGS) -o polish main.o getop.o charstack.o calcstack.o -lm
 
 main.o: main.c getop.h calcstack.h
 	$(CC) $(CFLAGS) -c main.c -o main.o

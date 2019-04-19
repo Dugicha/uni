@@ -1,8 +1,9 @@
 // Author: Nikoloz Otiashvili
-// K&R Exercise 4-3
+// K&R Exercise 4-5
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "calcstack.h"
 #include "getop.h"
 
@@ -11,7 +12,6 @@ int main(void)
      int type;
      double op2;
      char s[MAXOP];
-     int print_on_newline = 1;
      
      while ((type = getop(s)) != EOF) {
 	  switch (type) {
@@ -39,26 +39,18 @@ int main(void)
 	       op2 = pop();
 	       push((int) pop() % (int) op2);
 	       break;
-	  case 'p':		/* Print last number in stack */
-	       printf("\t%.8g\n", get_last());
-	       print_on_newline = 0;
+	  case 's': 		/* sin function */
+	       push(sin(pop()));
 	       break;
-	  case 's':		/* Swap last two numbers */
+	  case 'e':		/* exp function */
+	       push(exp(pop()));
+	       break;
+	  case 'p':		/* pow function */
 	       op2 = pop();
-	       double op1 = pop();
-	       push(op2);
-	       push(op1);
-	       print_on_newline = 0;
-	       break;
-	  case 'c':		/* Clear the stack */
-	       clear();
-	       print_on_newline = 0;
+	       push(pow(pop(), op2));
 	       break;
 	  case '\n':
-	       if (print_on_newline)
-		    printf("\t%.8g\n", pop());
-	       else
-		    print_on_newline = 1;
+	       printf("\t%.8g\n", pop());
 	       break;
 	  default:
 	       printf("Error: unknown command %s\n", s);
