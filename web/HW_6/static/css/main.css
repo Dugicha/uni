@@ -1,0 +1,22 @@
+.row {
+	margin-top: 20px;
+}
+
+nav > * {
+	margin-right: 10px;
+}
+
+.current-page {
+	padding: 3px;
+	background: #ff4500;
+	border-radius: 2px;
+}
+
+posts > li {
+	width: 100%;
+}
+
+.ninja {
+	color: white;
+	background-color: black;
+}

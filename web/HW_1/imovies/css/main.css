@@ -1,0 +1,368 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #545454;
+    background-image: url("../bg1.jpg");
+    background-repeat: repeat;
+    background-size: 500px;
+    font-family: "BPG Arial Caps", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 100;
+}
+
+.site-header {
+    background-color: #262525;
+    height: 54px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.logo {
+    text-decoration: none;
+    color: #3DA46A;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.search-container {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    background-color: #444444;
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.search-bar {
+    flex: 1;
+    height: 25px;
+    border: none;
+    text-align: left;
+    padding: 6px 0px 6px 12px;
+    font-size: 14px;
+    background-color: #444444;
+    color: #bbb;
+    font-family: "BPG Arial Caps";
+    outline: none;
+}
+
+.search-bar::placeholder {
+    color: #bbb;
+}
+
+.search-icon {
+    max-height: 30px;
+    padding: 10px 15px 10px 10px;
+}
+
+.search-icon:hover {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+}
+
+.today-movie-list {
+    max-width: 1400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px auto 30px auto;
+}
+
+.today-movie-list > article {
+    text-align: left;
+    margin: 0px 15px 0px 15px;
+}
+
+.today-movie-poster {
+    width: 400px;
+    height: 300px;
+}
+
+.today-movie-poster:hover {
+    cursor: pointer;
+}
+
+.today-movie-list > article > h3 {
+    color: #f0f0f0;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+.new-movie-list-container {
+    max-width: 1400px;
+    margin: 20px auto 30px auto;
+}
+
+.new-movie-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.new-movie-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.new-movie-header > img {
+    height: 20px;
+    width: auto;
+    padding: 6px;
+    margin: 0 20px 0 30px;
+    border-radius: 50%;
+    background-color: #3DA46A;
+}
+
+.new-movie-header > h1 {
+    color: #f0f0f0;
+    font-weight: 100;
+    font-size: 22px;
+}
+
+.new-movie-list > article {
+    text-align: left;
+    margin: 0px 15px 0px 15px;
+}
+
+.new-movie-poster {
+    width: 300px;
+    height: 180px;
+}
+
+.new-movie-poster:hover {
+    cursor: pointer;
+}
+
+.new-movie-list > article > h3 {
+    color: #f0f0f0;
+    font-weight: 100;
+    margin: 5px 0 5px 4px;
+}
+
+.new-movie-list > article > h4 {
+    color: #636363;
+    border: 1px;
+    text-shadow: 0 1px #000;
+    font-weight: 100;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0 0 10px 4px;
+}
+
+.fb-button {
+    height: 30px;
+    background-color: #048ADB;
+    padding: 0px 25px 0px 25px;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+.fb-button:hover {
+    cursor: pointer;
+}
+
+.elevate {
+    padding: 10px 0 10px 0;
+    width: 100%;
+    background-color: #292929;=
+}
+
+.oscars-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.lower {
+    background-image: url("../bg-forest.jpg");
+    background-size: cover;
+    padding: 10px 0 20px 0;
+    box-shadow: inset 0 4px 15px rgba(0, 0, 0, .5);
+}
+
+.advert {
+    margin-top: 10px;
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.advert > * {
+    width: 100%;
+    height: 140px;
+}
+
+.advert-large {
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.advert-large > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+    height: 280px;
+}
+
+.new-episodes-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.new-episodes-list-container > h2 {
+    flex: 2;
+    color: #f0f0f0;
+    font-weight: 100;
+    text-align: center;
+}
+
+.new-episodes-list {
+    flex: 5;
+    max-height: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 30px 5px 30px 25px;
+}
+
+.new-episodes-list > article {
+    margin: 5px 40px 5px 10px;
+    height: 90px;
+    min-width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.new-episode-poster {
+    width: 150px;
+    height: inherit;
+}
+
+.new-episode-info {
+    height: inherit;
+    padding-top: 10px;
+    margin-left: 15px;
+}
+
+.new-episode-info > * {
+    margin: 0 0 6px 0;
+}
+
+.new-episode-info > h3 {
+    font-size: 15px;
+    color: #f0f0f0;
+}
+
+.new-episode-info > h4 {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #696969;
+}
+
+.new-episode-info > span {
+    font-size: 13px;
+    color: #d3d3d3;
+}
+
+.popular-movies-list-container {
+    background-color: #1d1d1d;
+    width: 100%;
+}
+
+.popular-movies-list {
+    width: 1600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 auto 20px auto;
+}
+
+.popular-movies-header {
+    max-width: 1620px;
+    margin: 20px auto 3px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.popular-movies-header > img {
+    height: 28px;
+    width: auto;
+    padding: 1px;
+    margin: 0 20px 0 30px;
+    border-radius: 50%;
+    background-color: #3DA46A;
+}
+
+.popular-movies-header > h1 {
+    color: #f0f0f0;
+    font-weight: 100;
+    font-size: 22px;
+}
+
+.popular-movies-list > article {
+    text-align: left;
+    margin: 0px 15px 15px 15px;
+    padding: 10px;
+}
+
+.popular-movie-poster {
+    width: 250px;
+    height: 150px;
+}
+
+.popular-movie-poster:hover {
+    cursor: pointer;
+}
+
+.popular-movies-list > article > h3 {
+    color: #f0f0f0;
+    font-weight: 100;
+    margin: 5px 0 5px 4px;
+}
+
+.popular-movies-list > article > h4 {
+    color: #636363;
+    border: 1px;
+    text-shadow: 0 1px #000;
+    font-weight: 100;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0 0 10px 4px;
+}
+
+footer {
+    margin-top: 100px;
+    background-color: white;
+    box-shadow: 0 0 3px #808080;
+    height: 50px;
+    text-align: center;
+}

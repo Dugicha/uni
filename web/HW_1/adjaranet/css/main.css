@@ -1,0 +1,176 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: "BPG Arial", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.blue-strip {
+    background-color: #048ADB;
+    height: 4px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.site-header {
+    width: 100%;
+    height: 380px;
+}
+
+.nav-container {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 980px;
+    margin-top: 10px;
+}
+
+.logo > img {
+    width: 200px;
+    height: auto;
+}
+
+.site-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 50px;
+}
+
+.site-nav > a > img {
+    height: 40px;
+    padding: 3px;
+    margin-left: 10px;
+}
+
+.site-nav > a > img:hover {
+    background-color: blue;
+}
+
+.login-button {
+    background-color: #048ADB;
+    padding: 0px 25px 0px 25px;
+    margin: 8px 0px 8px 60px;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+.login-button:hover {
+    cursor: pointer;
+}
+
+.banner {
+    margin: 0;
+    background-color: black;
+    background-image:url("../banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    height: 35px;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+.search-bar {
+    width: 950px;
+    height: 25px;
+    border: none;
+    border-radius: 4px;
+    padding: 4px;
+    background-color: rgba(255, 255, 255, .6);
+    text-align: center;
+    font-size: 17px;
+}
+
+.search-icon {
+    max-height: 25px;
+    width: auto;
+    padding: 4px;
+}
+
+.search-icon:hover {
+    cursor: pointer;
+}
+
+.movie-list-container {
+    margin-top: 30px;
+    margin-bottom: 55px;
+    padding: 0;
+}
+
+.movie-list-title {
+    font-family: "BPG Arial", "HelveticaNeue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: -1px;
+    border: 0;
+    text-shadow: 0 1px #fbfbfb;
+    color: #575757;
+    margin-bottom: 10px;
+}
+
+.movie-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.movie-poster {
+    width: 184px;
+    height: 276px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.vignette {
+    box-shadow: inset 0 10px 50px 15px #000;
+}
+
+.social-container {
+    height: 20px;
+    width: 100%;
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.fb-like {
+    float: right;
+    margin-right: 45px;
+}
+
+.advert > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 300px;
+}
+
+footer {
+    background-color: white;
+    box-shadow: 0 0 3px #808080;
+    height: 50px;
+    text-align: center;
+}

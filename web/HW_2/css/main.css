@@ -1,0 +1,406 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fcfcfc;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --dark-blue: #253342;
+    --happy-orange: #ffa500;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+.site-header {
+    margin: 10px auto 0px auto;
+    height: 54px;
+    width: 960px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 12px;
+}
+
+.logo {
+    width: 120px;
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.site-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+    justify-content: flex-start;
+}
+
+.site-nav > a {
+    color: #212F3D;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0px 15px 0px 15px;
+}
+
+.site-nav-right > a {
+    color: #212F3D;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0px 0px 0px 25px;
+}
+
+.top-image {
+    width: 1000px;
+    margin: 20px auto 50px auto;
+    background-image: url("../bg.png");
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.top-image > img {
+    width: 100%;
+    height: auto;
+}
+
+.top-image > div {
+    --width-percent: 80%;
+    border-radius: 2px;
+    width: var(--width-percent);
+    height: 130px;
+    position: absolute;
+    background-color: white;
+    bottom: -20px;
+    left: calc((100% - var(--width-percent)) / 2);
+    box-shadow: 0 0 6px #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-image > div > img {
+    max-width: 90%;
+}
+
+.trip-planner {
+    width: 1200px;
+    margin: 100px auto 50px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.trip-planner-left-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow: visible;
+}
+
+.trip-planner-left {
+    max-width: 450px;
+    padding: 20px;
+    background-image: url("../res/mountains.png");
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.trip-planner-left > h1 {
+    font-weight: 800;
+    font-size: 43px;
+}
+
+.button-solid-orange {
+    font-size: 14px;
+    background-color: var(--happy-orange);
+    border: none;
+    border-radius: 2px;
+    padding: 15px 30px 15px 30px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.trip {
+    margin-left: 20px;
+    width: 300px;
+    height: 525px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.trip-image-container {
+    position: relative;
+    border-radius: 3px;
+    width: 300px;
+    height: 400px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.trip-image {
+    width: 100%;
+    height: 100%;
+}
+
+.trip-image-pin {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 11px;
+    background-color: var(--dark-blue);
+    padding: 8px 8px 6px 8px;
+    border-radius: 2px;
+}
+
+.trip-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.trip-category {
+    color: var(--happy-orange);
+    margin-top: 9px;
+    margin-bottom: 0px;
+    font-size: 18px;
+}
+
+.trip-price {
+    margin-top: 9px;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.trip-title {
+    margin: 10px 0 0 0;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.trip-info {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.trip-duration {
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.trip-rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.trip-rating > img {
+    max-width: 20px;
+}
+
+.weather-and-blogs-section {
+    margin: 120px auto 50px auto;
+    max-width: 1200px;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: nowrap;
+}
+
+.weather-image {
+    height: 500px;
+    width: auto;
+}
+
+.blogs-section {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+}
+
+.blogs-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogs-header > h1 {
+    color: var(--dark-blue);
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.blogs-see-all-link {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.blogs-header-underline {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: grey;
+    height: 2px;
+    border: none;
+}
+
+.blog-listing {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.blog-listing-image {
+    margin-right: 20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 3px;
+}
+
+.blog-listing > h1 {
+    font-weight: 800;
+    color: var(--dark-blue);
+}
+
+.blog-listing-separator {
+    margin: 15px 10px 15px 80px;
+    background-color: lightgrey;
+    height: 1px;
+    border: none;
+
+}
+
+.instagram-section {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.blue-bg {
+    background-color: var(--dark-blue);
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.shifted-image {
+    position: absolute;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.shifted-image-right {
+    margin-left: 70%;
+    margin-top: -25%;
+    height: 40%;
+    width: 60%;
+    object-fit: cover;
+}
+
+.shifted-image-rightest {
+    margin-left: 133%;
+    margin-top: -25%;
+    height: 40%;
+    width: 40%;
+    object-fit: cover;
+}
+
+.shifted-image-bottom {
+    margin-top: 10%;
+    margin-left: 30%;
+    height: 40%;
+    width: 80%;
+    object-fit: cover;
+}
+
+.instagram-text {
+    margin-left: 30%;
+    margin-top: 10%;
+}
+
+.instagram-text > h1 {
+    color: white;
+    margin: 15px 0 10px 0;
+    font-size: 40px;
+}
+
+.instagram-text > h3 {
+    font-size: 17px;
+    color: grey;
+    margin-bottom: 5px;
+}
+
+.hashtags > span {
+    color: var(--happy-orange);
+    margin-right: 10px;
+}
+
+.button-transparent-orange {
+    margin-top: 30px;
+    letter-spacing: 1px;
+    font-size: 13px;
+    background-color: transparent;
+    border: 1px solid var(--happy-orange);
+    border-radius: 3px;
+    padding: 12px 40px 12px 40px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.button-transparent-orange:hover {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    background-color: white;
+    box-shadow: 0 0 3px #808080;
+    height: 50px;
+}
+
+.grey {
+    color: grey !important;
+}
+
+.caps {
+    text-transform: uppercase !important;
+}
