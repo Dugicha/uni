@@ -1,0 +1,2 @@
+0000000000000000000000000000000000000000 ed38ada0374b0fa121251a2b198e9d6d0c87d3ae Nikaoto <nikaoto@gmail.com> 1560170752 +0400	commit (initial): initial commit: add sort.c
+ed38ada0374b0fa121251a2b198e9d6d0c87d3ae 5db6940139ff2f667d64db7432f188fe93599297 Nikaoto <nikaoto@gmail.com> 1560170758 +0400	commit: add Makefile
