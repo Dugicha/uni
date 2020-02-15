@@ -1,5 +1,6 @@
 // Author: Nika Otiashvili
 // K&R exercise 2-3
+// Converts a string of hex digit into integers
 
 #include <stdio.h>
 #include <unistd.h>

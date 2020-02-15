@@ -1,8 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Werror -O2
-
-.PHONY: all
-all: htoi
+CFLAGS=-Wall -Werror -O3
 
 htoi: htoi.c
-	${CC} ${CFLAGS} htoi.c -o htoi
+	$(CC) $(CFLAGS) htoi.c -o htoi
