@@ -1,8 +1,6 @@
 # uni
 Programming projects made for university ordered by subject.
 
-`Python/old` contains Python projects of my first year.
-
 ### ფაილების სტრუქტურა
 ყოველი ფაილი შეესაბამება დავალებას რიგითობის მიხედვით. `01` - პირველი,
 `07` - მეშვიდე, `23` - ოცდამესამე...
